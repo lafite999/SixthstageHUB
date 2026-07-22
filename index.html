@@ -1,41 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Web Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODYSSEY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Welcome to My Website</h1>
-    <p>This is a paragraph of text on my brand new web page hosted on GitHub Pages.</p>
+  <!-- grain / scanline overlay -->
+  <div class="grain"></div>
+  <div class="scanlines"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-    <h2>My Favorite Links</h2>
-    <ul>
-        <li><a href="https://www.google.com" target="_blank">Google Search</a></li>
-        <li><a href="https://news.ycombinator.com" target="_blank">Hacker News</a></li>
-        <li><a href="https://wikipedia.org" target="_blank">Wikipedia</a></li>
-    </ul>
+  <!-- side progress markers -->
+  <nav class="side-nav" aria-label="Section navigation">
+    <button class="dot active" data-target="cover" aria-label="Cover"></button>
+    <button class="dot" data-target="manifesto" aria-label="Manifesto"></button>
+    <button class="dot" data-target="gallery" aria-label="Gallery"></button>
+    <button class="dot" data-target="footer" aria-label="Contact"></button>
+  </nav>
 
-    <h2>About Me</h2>
-    <p>You can add more details, photos, or anything else you'd like right here.</p>
+  <!-- ============ SECTION 1 : COVER ============ -->
+  <section id="cover" class="section cover">
+    <header class="cover-top">
+      <span class="copyright-line">All rights reserved &mdash; <em>your studio name</em></span>
+      <div class="logo-mark" data-glitch="ODYSSEY">
+        <span class="logo-ring"></span>
+        <span class="logo-text">ODYSSEY</span>
+      </div>
+    </header>
 
+    <div class="bleed-title" aria-hidden="true">
+      <span>ODYSSEY</span>
+    </div>
+
+    <div class="statue-wrap" id="parallaxStatue">
+      <div class="statue-glow"></div>
+      <div class="statue-silhouette" id="statueImg">
+        <!-- Replace this div's background in style.css (.statue-silhouette)
+             with: background-image: url('assets/statue-full.jpg'); -->
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <button class="ctrl" id="prevSection" aria-label="Previous section">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 4 6 12l9 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+
+      <div class="quote-track">
+        <span class="tick">&#10022;</span>
+      </div>
+
+      <button class="ctrl" id="nextSection" aria-label="Next section">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 4l9 8-9 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+
+    <p class="epigraph">
+      "They were on the side of angels, even the angels weren't<br>
+      entirely sure that this was a good thing."
+    </p>
+
+    <div class="scroll-cue">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2 : MANIFESTO (magazine style) ============ -->
+  <section id="manifesto" class="section manifesto">
+    <div class="mag-top">
+      <h2 class="mag-bleed reveal">MANIFESTO</h2>
+      <span class="mag-tag">No. 001 &mdash; ORIGIN</span>
+    </div>
+
+    <div class="mag-body">
+      <div class="mag-portrait">
+        <div class="portrait-shape"></div>
+        <!-- swap with: <img src="assets/statue-portrait.jpg" alt=""> -->
+        <span class="portrait-caption">FIG. 01 &mdash; UNSEEN</span>
+      </div>
+
+      <div class="mag-copy">
+        <p class="reveal">
+          I know of no single formula for arrival. But across every version
+          of this story, one thing has stayed true &mdash; the ones who move
+          forward are rarely the ones who felt ready.
+        </p>
+        <span class="pull-tag reveal">FEARLESS</span>
+
+        <div class="pull-strip reveal"></div>
+
+        <span class="pull-tag right reveal">RELENTLESS</span>
+        <p class="reveal">
+          Whatever this becomes, whether it runs long or ends tomorrow,
+          it belongs to whoever is brave enough to keep building it.
+        </p>
+      </div>
+    </div>
+
+    <div class="mag-bottom">
+      <div class="barcode" aria-hidden="true"></div>
+      <span class="mag-footnote">STUDIO ODYSSEY &mdash; EST. 2026</span>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3 : GALLERY (close-up detail) ============ -->
+  <section id="gallery" class="section gallery">
+    <div class="gallery-frame">
+      <div class="wing-detail" id="wingParallax"></div>
+      <!-- swap with: background-image: url('assets/statue-detail.jpg'); -->
+      <div class="gallery-caption">
+        <span class="reveal">DETAIL &mdash; THE ASCENT</span>
+      </div>
+    </div>
+    <h3 class="gallery-title reveal" data-glitch="RISE">RISE</h3>
+  </section>
+
+  <!-- ============ SECTION 4 : FOOTER ============ -->
+  <section id="footer" class="section footer-section">
+    <h2 class="footer-title reveal">BEGIN THE<br>ODYSSEY</h2>
+    <div class="footer-links reveal">
+      <a href="#">INSTAGRAM</a>
+      <a href="#">TWITTER / X</a>
+      <a href="#">CONTACT</a>
+    </div>
+    <button class="back-top" id="backTop">BACK TO COVER &uarr;</button>
+    <span class="fine-print">&copy; 2026 Odyssey. All imagery credited to its original creators.</span>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
